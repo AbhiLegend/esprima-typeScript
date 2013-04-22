@@ -22291,7 +22291,46 @@ var testFixture = {
    range: [ 0, 22 ],
    loc:
     { start: { line: 1, column: 0 },
-      end: { line: 1, column: 22 } } }
+      end: { line: 1, column: 22 } } },
+		'(<{x: number; y: number; }>(name+r))' : { type: 'ExpressionStatement',
+      expression:
+       { type: 'BinaryExpression',
+         operator: '+',
+         left:
+          { type: 'Identifier',
+            name: 'name',
+            range: [ 28, 32 ],
+            loc:
+             { start: { line: 1, column: 28 },
+               end: { line: 1, column: 32 } } },
+         right:
+          { type: 'Identifier',
+            name: 'r',
+            range: [ 33, 34 ],
+            loc:
+             { start: { line: 1, column: 33 },
+               end: { line: 1, column: 34 } } },
+         range: [ 28, 34 ],
+         loc:
+          { start: { line: 1, column: 28 },
+            end: { line: 1, column: 34 } },
+         cast:
+          { type: 'CastExpression',
+            expr:
+             [ { type: 'TypedExpression',
+                 identifier: 'x',
+                 typeDef: 'number' },
+               { type: 'TypedExpression',
+                 identifier: 'y',
+                 typeDef: 'number' } ],
+            range: [ 1, 27 ],
+            loc:
+             { start: { line: 1, column: 1 },
+               end: { line: 1, column: 27 } } } },
+      range: [ 0, 36 ],
+      loc:
+       { start: { line: 1, column: 0 },
+         end: { line: 1, column: 36 } } }
 	}
 };
 
