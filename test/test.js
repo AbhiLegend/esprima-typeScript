@@ -4877,6 +4877,7 @@ var testFixture = {
                             end: { line: 1, column: 16 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [4, 16],
                     loc: {
                         start: { line: 1, column: 4 },
@@ -4947,6 +4948,7 @@ var testFixture = {
                         raw: '/[x-z]/i',
                         range: [8, 16]
                     },
+					typeAnnotation: 'any',
                     range: [4, 16]
                 }],
                 kind: 'var',
@@ -4995,6 +4997,7 @@ var testFixture = {
                             end: { line: 1, column: 16 }
                         }
                     },
+					typeAnnotation: 'any',
                     loc: {
                         start: { line: 1, column: 4 },
                         end: { line: 1, column: 16 }
@@ -5066,6 +5069,7 @@ var testFixture = {
                             end: { line: 1, column: 17 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [4, 17],
                     loc: {
                         start: { line: 1, column: 4 },
@@ -5144,6 +5148,7 @@ var testFixture = {
                             end: { line: 1, column: 18 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [4, 18],
                     loc: {
                         start: { line: 1, column: 4 },
@@ -5222,6 +5227,7 @@ var testFixture = {
                             end: { line: 1, column: 21 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [4, 21],
                     loc: {
                         start: { line: 1, column: 4 },
@@ -5300,6 +5306,7 @@ var testFixture = {
                             end: { line: 1, column: 22 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [4, 22],
                     loc: {
                         start: { line: 1, column: 4 },
@@ -5378,6 +5385,7 @@ var testFixture = {
                             end: { line: 1, column: 18 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [4, 18],
                     loc: {
                         start: { line: 1, column: 4 },
@@ -5472,6 +5480,7 @@ var testFixture = {
                         end: { line: 1, column: 18 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [4, 18],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -10214,6 +10223,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [4, 5],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -10242,6 +10252,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [4, 5],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -10259,6 +10270,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [7, 8],
                 loc: {
                     start: { line: 1, column: 7 },
@@ -10296,6 +10308,7 @@ var testFixture = {
                         end: { line: 1, column: 10 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [4, 10],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -10333,6 +10346,7 @@ var testFixture = {
                         end: { line: 1, column: 13 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [4, 13],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -10359,6 +10373,7 @@ var testFixture = {
                         end: { line: 1, column: 29 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [15, 29],
                 loc: {
                     start: { line: 1, column: 15 },
@@ -10396,6 +10411,7 @@ var testFixture = {
                         end: { line: 1, column: 10 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [4, 10],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -10422,6 +10438,7 @@ var testFixture = {
                         end: { line: 1, column: 17 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [12, 17],
                 loc: {
                     start: { line: 1, column: 12 },
@@ -10448,6 +10465,7 @@ var testFixture = {
                         end: { line: 1, column: 27 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [19, 27],
                 loc: {
                     start: { line: 1, column: 19 },
@@ -10476,6 +10494,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [4, 14],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -10493,6 +10512,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [16, 25],
                 loc: {
                     start: { line: 1, column: 16 },
@@ -10510,6 +10530,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [27, 34],
                 loc: {
                     start: { line: 1, column: 27 },
@@ -10538,6 +10559,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [4, 11],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -10555,6 +10577,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [13, 22],
                 loc: {
                     start: { line: 1, column: 13 },
@@ -10572,6 +10595,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [24, 30],
                 loc: {
                     start: { line: 1, column: 24 },
@@ -10589,6 +10613,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [32, 38],
                 loc: {
                     start: { line: 1, column: 32 },
@@ -10621,6 +10646,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [4, 5],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -10651,6 +10677,7 @@ var testFixture = {
                         }
                     },
                     init: null,
+					typeAnnotation: 'any',
                     range: [6, 7],
                     loc: {
                         start: { line: 1, column: 6 },
@@ -10696,6 +10723,7 @@ var testFixture = {
                             end: { line: 1, column: 12 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [6, 12],
                     loc: {
                         start: { line: 1, column: 6 },
@@ -10741,6 +10769,7 @@ var testFixture = {
                             end: { line: 1, column: 12 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [6, 12],
                     loc: {
                         start: { line: 1, column: 6 },
@@ -10767,6 +10796,7 @@ var testFixture = {
                             end: { line: 1, column: 19 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [14, 19],
                     loc: {
                         start: { line: 1, column: 14 },
@@ -10793,6 +10823,7 @@ var testFixture = {
                             end: { line: 1, column: 29 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [21, 29],
                     loc: {
                         start: { line: 1, column: 21 },
@@ -10840,6 +10871,7 @@ var testFixture = {
                         end: { line: 1, column: 12 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [6, 12],
                 loc: {
                     start: { line: 1, column: 6 },
@@ -10879,6 +10911,7 @@ var testFixture = {
                             end: { line: 1, column: 14 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [8, 14],
                     loc: {
                         start: { line: 1, column: 8 },
@@ -10924,6 +10957,7 @@ var testFixture = {
                             end: { line: 1, column: 14 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [8, 14],
                     loc: {
                         start: { line: 1, column: 8 },
@@ -10950,6 +10984,7 @@ var testFixture = {
                             end: { line: 1, column: 21 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [16, 21],
                     loc: {
                         start: { line: 1, column: 16 },
@@ -10976,6 +11011,7 @@ var testFixture = {
                             end: { line: 1, column: 31 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [23, 31],
                     loc: {
                         start: { line: 1, column: 23 },
@@ -11269,6 +11305,7 @@ var testFixture = {
                             end: { line: 1, column: 22 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [17, 22],
                     loc: {
                         start: { line: 1, column: 17 },
@@ -11911,6 +11948,7 @@ var testFixture = {
                             end: { line: 1, column: 13 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [8, 13],
                     loc: {
                         start: { line: 1, column: 8 },
@@ -11966,6 +12004,7 @@ var testFixture = {
                             end: { line: 1, column: 13 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [8, 13],
                     loc: {
                         start: { line: 1, column: 8 },
@@ -12021,6 +12060,7 @@ var testFixture = {
                             end: { line: 1, column: 13 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [8, 13],
                     loc: {
                         start: { line: 1, column: 8 },
@@ -12047,6 +12087,7 @@ var testFixture = {
                             end: { line: 1, column: 20 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [15, 20],
                     loc: {
                         start: { line: 1, column: 15 },
@@ -12439,6 +12480,7 @@ var testFixture = {
                         }
                     },
                     init: null,
+					typeAnnotation: 'any',
                     range: [9, 10],
                     loc: {
                         start: { line: 1, column: 9 },
@@ -12528,6 +12570,7 @@ var testFixture = {
                             end: { line: 1, column: 15 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [9, 15],
                     loc: {
                         start: { line: 1, column: 9 },
@@ -12608,6 +12651,7 @@ var testFixture = {
                         }
                     },
                     init: null,
+					typeAnnotation: 'any',
                     range: [9, 10],
                     loc: {
                         start: { line: 1, column: 9 },
@@ -12745,6 +12789,7 @@ var testFixture = {
                             end: { line: 1, column: 43 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [9, 43],
                     loc: {
                         start: { line: 1, column: 9 },
@@ -15153,6 +15198,7 @@ var testFixture = {
                         end: { line: 1, column: 31 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [4, 31],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -15211,6 +15257,7 @@ var testFixture = {
                         end: { line: 1, column: 28 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [4, 28],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -15269,6 +15316,7 @@ var testFixture = {
                         end: { line: 1, column: 33 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [4, 33],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -15352,6 +15400,7 @@ var testFixture = {
                         end: { line: 1, column: 37 }
                     }
                 },
+				typeAnnotation: 'any',
                 range: [4, 37],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -15628,6 +15677,7 @@ var testFixture = {
                     }
                 },
                 init: null,
+				typeAnnotation: 'any',
                 range: [4, 5],
                 loc: {
                     start: { line: 1, column: 4 },
@@ -15667,6 +15717,7 @@ var testFixture = {
                             end: { line: 1, column: 12 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [6, 12],
                     loc: {
                         start: { line: 1, column: 6 },
@@ -15693,6 +15744,7 @@ var testFixture = {
                             end: { line: 1, column: 19 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [14, 19],
                     loc: {
                         start: { line: 1, column: 14 },
@@ -19390,7 +19442,8 @@ var testFixture = {
                 VariableDeclaration: 'VariableDeclaration',
                 VariableDeclarator: 'VariableDeclarator',
                 WhileStatement: 'WhileStatement',
-                WithStatement: 'WithStatement'
+                WithStatement: 'WithStatement',
+				CastExpression: 'CastExpression'
             }
         },
 
@@ -19923,6 +19976,7 @@ var testFixture = {
                         }
                     },
                     init: null,
+					typeAnnotation: 'any',
                     range: [18, 22],
                     loc: {
                         start: { line: 1, column: 18 },
@@ -19982,6 +20036,7 @@ var testFixture = {
                         }
                     },
                     init: null,
+					typeAnnotation: 'any',
                     range: [18, 27],
                     loc: {
                         start: { line: 1, column: 18 },
@@ -21727,6 +21782,7 @@ var testFixture = {
                             end: { line: 1, column: 31 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [18, 31],
                     loc: {
                         start: { line: 1, column: 18 },
@@ -21874,6 +21930,7 @@ var testFixture = {
                             end: { line: 1, column: 48 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [18, 48],
                     loc: {
                         start: { line: 1, column: 18 },
@@ -22008,6 +22065,7 @@ var testFixture = {
                             end: { line: 1, column: 43 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [18, 43],
                     loc: {
                         start: { line: 1, column: 18 },
@@ -22150,6 +22208,7 @@ var testFixture = {
                             end: { line: 1, column: 44 }
                         }
                     },
+					typeAnnotation: 'any',
                     range: [18, 44],
                     loc: {
                         start: { line: 1, column: 18 },
@@ -22174,11 +22233,54 @@ var testFixture = {
                 column: 43,
                 message: 'Error: Line 1: Object literal may not have data and accessor property with the same name'
             }]
-
-
         }
-
-
-    }
+    },
+    'TypeScript': {
+        'var answer: number = 42':    { type: 'VariableDeclaration',
+       declarations: 
+        [ { type: 'VariableDeclarator',
+            id: 
+             { type: 'Identifier',
+               name: 'answer',
+               range: [ 4, 10 ],
+               loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 10 } } },
+            init: 
+             { type: 'Literal',
+               value: 42,
+               raw: '42',
+               range: [ 21, 23 ],
+               loc: { start: { line: 1, column: 21 }, end: { line: 1, column: 23 } } },
+            typeAnnotation: 'number',
+            range: [ 4, 23 ],
+            loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 23 } } } ],
+       kind: 'var',
+       range: [ 0, 23 ],
+       loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 23 } } } ,
+		'var answer = <Teste>42' : { type: 'VariableDeclaration',
+		declarations: 
+        [ { type: 'VariableDeclarator',
+            id: 
+             { type: 'Identifier',
+               name: 'answer',
+               range: [ 4, 10 ],
+               loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 10 } } },
+            init: 
+             { type: 'Literal',
+               value: 42,
+               raw: '42',
+               range: [ 20, 22 ],
+               loc: { start: { line: 1, column: 20 }, end: { line: 1, column: 22 } },
+               cast: 
+                { type: 'CastExpression',
+                  expr: 'Teste',
+                  range: [ 13, 20 ],
+                  loc: { start: { line: 1, column: 13 }, end: { line: 1, column: 20 } } } },
+            typeAnnotation: 'any',
+            range: [ 4, 22 ],
+            loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 22 } } } ],
+       kind: 'var',
+       range: [ 0, 22 ],
+       loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 22 } } } 
+	}
 };
 

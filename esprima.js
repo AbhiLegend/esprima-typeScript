@@ -81,7 +81,9 @@ parseStatement: true, parseSourceElement: true */
         NumericLiteral: 6,
         Punctuator: 7,
         StringLiteral: 8,
-        RegularExpression: 9
+        RegularExpression: 9,
+		// TypeScript
+		TypeAnnotation: 10
     };
 
     TokenName = {};
@@ -94,6 +96,8 @@ parseStatement: true, parseSourceElement: true */
     TokenName[Token.Punctuator] = 'Punctuator';
     TokenName[Token.StringLiteral] = 'String';
     TokenName[Token.RegularExpression] = 'RegularExpression';
+	// TypeScript
+	TokenName[Token.TypeAnnotation] = 'TypeAnnotation';
 
     // A function following one of those tokens is an expression.
     FnExprTokens = ["(", "{", "[", "in", "typeof", "instanceof", "new",
@@ -146,7 +150,9 @@ parseStatement: true, parseSourceElement: true */
         VariableDeclaration: 'VariableDeclaration',
         VariableDeclarator: 'VariableDeclarator',
         WhileStatement: 'WhileStatement',
-        WithStatement: 'WithStatement'
+        WithStatement: 'WithStatement',
+		// TypeScript
+		CastExpression: 'CastExpression'
     };
 
     PropertyKind = {
@@ -1487,11 +1493,12 @@ parseStatement: true, parseSourceElement: true */
             };
         },
 
-        createVariableDeclarator: function (id, init) {
+        createVariableDeclarator: function (id, init, typeAnnotation) {
             return {
                 type: Syntax.VariableDeclarator,
                 id: id,
-                init: init
+                init: init,
+				typeAnnotation: typeAnnotation
             };
         },
 
@@ -1509,7 +1516,14 @@ parseStatement: true, parseSourceElement: true */
                 object: object,
                 body: body
             };
-        }
+        },
+
+		createCastStatement: function (expr) {
+			return {
+				type: Syntax.CastExpression,
+				expr: expr
+			};
+		}
     };
 
     // Return true if there is a line terminator before the next token.
@@ -2232,11 +2246,10 @@ parseStatement: true, parseSourceElement: true */
     // 11.13 Assignment Operators
 
     function parseAssignmentExpression() {
-        var token, left, right;
+        var token, left, right, cast;
 
         token = lookahead;
         left = parseConditionalExpression();
-
         if (matchAssign()) {
             // LeftHandSideExpression
             if (!isLeftHandSide(left)) {
@@ -2320,9 +2333,32 @@ parseStatement: true, parseSourceElement: true */
         return delegate.createIdentifier(token.value);
     }
 
+	function parseCastExpression() {
+		var token = lookahead, result = null;
+
+		if (match('<')) {
+			lex();
+
+			result = delegate.createCastStatement(lookahead.value);
+
+			lex();
+			if (!match('>')) {
+				throwError({}, "Invalid cast expression");
+			}
+
+			lex();
+		} else {
+			throwError({}, "Invalid cast expression");
+		}
+
+		return result;
+	}
+
     function parseVariableDeclaration(kind) {
         var id = parseVariableIdentifier(),
-            init = null;
+            init = null,
+			typeAnnotation = 'any',
+			cast;
 
         // 12.2.1
         if (strict && isRestrictedWord(id.name)) {
@@ -2332,12 +2368,31 @@ parseStatement: true, parseSourceElement: true */
         if (kind === 'const') {
             expect('=');
             init = parseAssignmentExpression();
+		} else if (match(':')) { /* == verify TypeScript typeAnnotation == */
+			lex();
+			if (lookahead.type === Token.Identifier) {
+				typeAnnotation = lookahead.value;
+				lookahead.type = Token.TypeAnnotation;
+			} else {
+				throwErrorTolerant({}, "Invalid TypeAnnotation");
+			}
+			lex();
+			if (match('=')) {
+				lex();
+				init = parseAssignmentExpression();
+			}
         } else if (match('=')) {
             lex();
+			if (match('<')) {
+				cast = parseCastExpression();
+			}
             init = parseAssignmentExpression();
+			if (cast) {
+				init.cast = cast;
+			}
         }
 
-        return delegate.createVariableDeclarator(id, init);
+        return delegate.createVariableDeclarator(id, init, typeAnnotation);
     }
 
     function parseVariableDeclarationList(kind) {
@@ -3718,6 +3773,7 @@ parseStatement: true, parseSourceElement: true */
             extra.parseUnaryExpression = parseUnaryExpression;
             extra.parseVariableDeclaration = parseVariableDeclaration;
             extra.parseVariableIdentifier = parseVariableIdentifier;
+			extra.parseCastExpression = parseCastExpression;
 
             parseAssignmentExpression = wrapTracking(extra.parseAssignmentExpression);
             parseBinaryExpression = wrapTracking(extra.parseBinaryExpression);
@@ -3745,6 +3801,7 @@ parseStatement: true, parseSourceElement: true */
             parseUnaryExpression = wrapTracking(extra.parseUnaryExpression);
             parseVariableDeclaration = wrapTracking(extra.parseVariableDeclaration);
             parseVariableIdentifier = wrapTracking(extra.parseVariableIdentifier);
+			parseCastExpression = wrapTracking(extra.parseCastExpression);
         }
 
         if (typeof extra.tokens !== 'undefined') {
@@ -3790,6 +3847,7 @@ parseStatement: true, parseSourceElement: true */
             parseUnaryExpression = extra.parseUnaryExpression;
             parseVariableDeclaration = extra.parseVariableDeclaration;
             parseVariableIdentifier = extra.parseVariableIdentifier;
+			parseCastExpression = extra.parseCastExpression;
         }
 
         if (typeof extra.scanRegExp === 'function') {

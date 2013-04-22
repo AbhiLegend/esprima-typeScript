@@ -404,7 +404,7 @@ if (typeof window !== 'undefined') {
         Object.keys(testFixture).forEach(function (category) {
             Object.keys(testFixture[category]).forEach(function (source) {
                 total += 1;
-                expected = testFixture[category][source];
+                expected = testFixture[category][source];				
                 try {
                     runTest(esprima, source, expected);
                 } catch (e) {
@@ -420,7 +420,7 @@ if (typeof window !== 'undefined') {
         if (failures.length) {
             console.error(header);
             failures.forEach(function (failure) {
-                console.error(failure.source + ': Expected\n    ' +
+                console.log(failure.source + ': Expected\n    ' +
                     failure.expected.split('\n').join('\n    ') +
                     '\nto match\n    ' + failure.actual);
             });

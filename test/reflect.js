@@ -44,7 +44,7 @@ function genFunDecl(id, params, body) { return Pattern({ type: "FunctionDeclarat
                                                 generator: false,
                                                 expression: false
                                                 }) }
-function declarator(id, init) { return Pattern({ type: "VariableDeclarator", id: id, init: init }) }
+function declarator(id, init) { return Pattern({ type: "VariableDeclarator", id: id, init: init, typeAnnotation: 'any' }) }
 function varDecl(decls) { return Pattern({ type: "VariableDeclaration", declarations: decls, kind: "var" }) }
 function letDecl(decls) { return Pattern({ type: "VariableDeclaration", declarations: decls, kind: "let" }) }
 function constDecl(decls) { return Pattern({ type: "VariableDeclaration", declarations: decls, kind: "const" }) }
