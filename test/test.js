@@ -19443,7 +19443,8 @@ var testFixture = {
                 VariableDeclarator: 'VariableDeclarator',
                 WhileStatement: 'WhileStatement',
                 WithStatement: 'WithStatement',
-				CastExpression: 'CastExpression'
+				CastExpression: 'CastExpression',
+				TypedExpression: 'TypedExpression'
             }
         },
 

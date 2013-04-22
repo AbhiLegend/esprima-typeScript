@@ -152,7 +152,8 @@ parseStatement: true, parseSourceElement: true */
         WhileStatement: 'WhileStatement',
         WithStatement: 'WithStatement',
 		// TypeScript
-		CastExpression: 'CastExpression'
+		CastExpression: 'CastExpression',
+		TypedExpression: 'TypedExpression'
     };
 
     PropertyKind = {
@@ -1518,10 +1519,18 @@ parseStatement: true, parseSourceElement: true */
             };
         },
 
+		// TypeScript
 		createCastStatement: function (expr) {
 			return {
 				type: Syntax.CastExpression,
 				expr: expr
+			};
+		},
+		createTypedIdentifierStatement: function (identifier, type) {
+			return {
+				type: Syntax.TypedExpression,
+				identifier: identifier,
+				typeDef: type
 			};
 		}
     };
@@ -1872,13 +1881,56 @@ parseStatement: true, parseSourceElement: true */
 		return token;
 	}
 
+	function parseTypedIdentifier() {
+		var identifier, type;
+
+		identifier = lookahead.value;
+		lex();
+
+		// :
+		lex();
+
+		type = lookahead.value;
+		lex();
+
+		// ;
+		lex();
+
+		return delegate.createTypedIdentifierStatement(identifier, type);
+	}
+
+	function parseTypedIdentifierList() {
+        var list = [],
+            statement;
+
+        while (index < length) {
+            if (match('}')) {
+                break;
+            }
+            statement = parseTypedIdentifier();
+            if (typeof statement === 'undefined') {
+                break;
+            }
+            list.push(statement);
+        }
+
+        return list;
+	}
+
 	function parseCastExpression() {
 		var token = lookahead, result = null;
 
 		if (match('<')) {
 			lex();
 
-			result = delegate.createCastStatement(lookahead.value);
+			if (match('{')) {
+				lex();
+				result = delegate.createCastStatement(parseTypedIdentifierList());
+			} else if (lookahead.type === Token.Identifier) {
+				result = delegate.createCastStatement(lookahead.value);
+			} else {
+				throwError({}, "Invalid cast expression");
+			}
 
 			lex();
 			if (!match('>')) {
