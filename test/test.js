@@ -22256,31 +22256,41 @@ var testFixture = {
        kind: 'var',
        range: [ 0, 23 ],
        loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 23 } } } ,
-		'var answer = <Teste>42' : { type: 'VariableDeclaration',
-		declarations: 
-        [ { type: 'VariableDeclarator',
-            id: 
-             { type: 'Identifier',
-               name: 'answer',
-               range: [ 4, 10 ],
-               loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 10 } } },
-            init: 
-             { type: 'Literal',
-               value: 42,
-               raw: '42',
-               range: [ 20, 22 ],
-               loc: { start: { line: 1, column: 20 }, end: { line: 1, column: 22 } },
-               cast: 
-                { type: 'CastExpression',
-                  expr: 'Teste',
-                  range: [ 13, 20 ],
-                  loc: { start: { line: 1, column: 13 }, end: { line: 1, column: 20 } } } },
-            typeAnnotation: 'any',
-            range: [ 4, 22 ],
-            loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 22 } } } ],
-       kind: 'var',
-       range: [ 0, 22 ],
-       loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 22 } } } 
+		'var answer = <Teste>42' :  { type: 'VariableDeclaration',
+   declarations:
+    [ { type: 'VariableDeclarator',
+        id:
+         { type: 'Identifier',
+           name: 'answer',
+           range: [ 4, 10 ],
+           loc:
+            { start: { line: 1, column: 4 },
+              end: { line: 1, column: 10 } } },
+        init:
+         { type: 'Literal',
+           value: 42,
+           raw: '42',
+           cast:
+            { type: 'CastExpression',
+              expr: 'Teste',
+              range: [ 13, 20 ],
+              loc:
+               { start: { line: 1, column: 13 },
+                 end: { line: 1, column: 20 } } },
+           range: [ 13, 22 ],
+           loc:
+            { start: { line: 1, column: 13 },
+              end: { line: 1, column: 22 } } },
+        typeAnnotation: 'any',
+        range: [ 4, 22 ],
+        loc:
+         { start: { line: 1, column: 4 },
+           end: { line: 1, column: 22 } } } ],
+   kind: 'var',
+   range: [ 0, 22 ],
+   loc:
+    { start: { line: 1, column: 0 },
+      end: { line: 1, column: 22 } } }
 	}
 };
 

@@ -1864,62 +1864,94 @@ parseStatement: true, parseSourceElement: true */
         return expr;
     }
 
+	function applyCast(token, cast) {
+		if (cast) {
+			token.cast = cast;
+		}
+
+		return token;
+	}
+
+	function parseCastExpression() {
+		var token = lookahead, result = null;
+
+		if (match('<')) {
+			lex();
+
+			result = delegate.createCastStatement(lookahead.value);
+
+			lex();
+			if (!match('>')) {
+				throwError({}, "Invalid cast expression");
+			}
+
+			lex();
+		} else {
+			throwError({}, "Invalid cast expression");
+		}
+
+		return result;
+	}
 
     // 11.1 Primary Expressions
 
     function parsePrimaryExpression() {
-        var type, token;
+        var type, token, cast, result;
+
+		if (match('<')) { /* == verify TypeScript CastExpression == */
+			cast = parseCastExpression();
+		}
 
         type = lookahead.type;
 
         if (type === Token.Identifier) {
-            return delegate.createIdentifier(lex().value);
+            return applyCast(delegate.createIdentifier(lex().value), cast);
         }
 
         if (type === Token.StringLiteral || type === Token.NumericLiteral) {
             if (strict && lookahead.octal) {
                 throwErrorTolerant(lookahead, Messages.StrictOctalLiteral);
             }
-            return delegate.createLiteral(lex());
+            return applyCast(delegate.createLiteral(lex()), cast);
         }
 
         if (type === Token.Keyword) {
             if (matchKeyword('this')) {
                 lex();
-                return delegate.createThisExpression();
+                return applyCast(delegate.createThisExpression(), cast);
             }
 
             if (matchKeyword('function')) {
-                return parseFunctionExpression();
+                return applyCast(parseFunctionExpression(), cast);
             }
         }
 
         if (type === Token.BooleanLiteral) {
             token = lex();
             token.value = (token.value === 'true');
-            return delegate.createLiteral(token);
+            return applyCast(delegate.createLiteral(token), cast);
         }
 
         if (type === Token.NullLiteral) {
             token = lex();
             token.value = null;
-            return delegate.createLiteral(token);
+            return applyCast(delegate.createLiteral(token), cast);
         }
 
         if (match('[')) {
-            return parseArrayInitialiser();
+            return applyCast(parseArrayInitialiser(), cast);
         }
 
         if (match('{')) {
-            return parseObjectInitialiser();
+            return applyCast(parseObjectInitialiser(), cast);
         }
 
         if (match('(')) {
-            return parseGroupExpression();
+            return applyCast(parseGroupExpression(), cast);
         }
 
         if (match('/') || match('/=')) {
-            return delegate.createLiteral(scanRegExp());
+            return applyCast(delegate.createLiteral(scanRegExp()), cast);
         }
 
         return throwUnexpected(lex());
@@ -2333,27 +2365,6 @@ parseStatement: true, parseSourceElement: true */
         return delegate.createIdentifier(token.value);
     }
 
-	function parseCastExpression() {
-		var token = lookahead, result = null;
-
-		if (match('<')) {
-			lex();
-
-			result = delegate.createCastStatement(lookahead.value);
-
-			lex();
-			if (!match('>')) {
-				throwError({}, "Invalid cast expression");
-			}
-
-			lex();
-		} else {
-			throwError({}, "Invalid cast expression");
-		}
-
-		return result;
-	}
-
     function parseVariableDeclaration(kind) {
         var id = parseVariableIdentifier(),
             init = null,
@@ -2383,13 +2394,7 @@ parseStatement: true, parseSourceElement: true */
 			}
         } else if (match('=')) {
             lex();
-			if (match('<')) {
-				cast = parseCastExpression();
-			}
             init = parseAssignmentExpression();
-			if (cast) {
-				init.cast = cast;
-			}
         }
 
         return delegate.createVariableDeclarator(id, init, typeAnnotation);
