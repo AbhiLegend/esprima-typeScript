@@ -6,7 +6,7 @@
 
 > * var answer: number = 42
 
-### TypeScript :: Cast
+### TypeScript :: TypeCast
 
 > * var answer = <Teste>42
 

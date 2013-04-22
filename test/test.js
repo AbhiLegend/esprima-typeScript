@@ -22236,101 +22236,132 @@ var testFixture = {
             }]
         }
     },
-    'TypeScript': {
-        'var answer: number = 42':    { type: 'VariableDeclaration',
-       declarations: 
-        [ { type: 'VariableDeclarator',
-            id: 
-             { type: 'Identifier',
-               name: 'answer',
-               range: [ 4, 10 ],
-               loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 10 } } },
-            init: 
-             { type: 'Literal',
-               value: 42,
-               raw: '42',
-               range: [ 21, 23 ],
-               loc: { start: { line: 1, column: 21 }, end: { line: 1, column: 23 } } },
-            typeAnnotation: 'number',
-            range: [ 4, 23 ],
-            loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 23 } } } ],
-       kind: 'var',
-       range: [ 0, 23 ],
-       loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 23 } } } ,
-		'var answer = <Teste>42' :  { type: 'VariableDeclaration',
-   declarations:
-    [ { type: 'VariableDeclarator',
-        id:
-         { type: 'Identifier',
-           name: 'answer',
-           range: [ 4, 10 ],
-           loc:
-            { start: { line: 1, column: 4 },
-              end: { line: 1, column: 10 } } },
-        init:
-         { type: 'Literal',
-           value: 42,
-           raw: '42',
-           cast:
-            { type: 'CastExpression',
-              expr: 'Teste',
-              range: [ 13, 20 ],
-              loc:
-               { start: { line: 1, column: 13 },
-                 end: { line: 1, column: 20 } } },
-           range: [ 13, 22 ],
-           loc:
-            { start: { line: 1, column: 13 },
-              end: { line: 1, column: 22 } } },
-        typeAnnotation: 'any',
-        range: [ 4, 22 ],
-        loc:
-         { start: { line: 1, column: 4 },
-           end: { line: 1, column: 22 } } } ],
-   kind: 'var',
-   range: [ 0, 22 ],
-   loc:
-    { start: { line: 1, column: 0 },
-      end: { line: 1, column: 22 } } },
-		'(<{x: number; y: number; }>(name+r))' : { type: 'ExpressionStatement',
-      expression:
-       { type: 'BinaryExpression',
-         operator: '+',
-         left:
-          { type: 'Identifier',
-            name: 'name',
-            range: [ 28, 32 ],
-            loc:
-             { start: { line: 1, column: 28 },
-               end: { line: 1, column: 32 } } },
-         right:
-          { type: 'Identifier',
-            name: 'r',
-            range: [ 33, 34 ],
-            loc:
-             { start: { line: 1, column: 33 },
-               end: { line: 1, column: 34 } } },
-         range: [ 28, 34 ],
-         loc:
-          { start: { line: 1, column: 28 },
-            end: { line: 1, column: 34 } },
-         cast:
-          { type: 'CastExpression',
-            expr:
-             [ { type: 'TypedExpression',
-                 identifier: 'x',
-                 typeDef: 'number' },
-               { type: 'TypedExpression',
-                 identifier: 'y',
-                 typeDef: 'number' } ],
-            range: [ 1, 27 ],
-            loc:
-             { start: { line: 1, column: 1 },
-               end: { line: 1, column: 27 } } } },
-      range: [ 0, 36 ],
-      loc:
-       { start: { line: 1, column: 0 },
-         end: { line: 1, column: 36 } } }
+    'TypeScript :: TypeAnnotation': {
+		'var answer: number = 42': { 
+			type: 'VariableDeclaration',
+			declarations: [{ 
+				type: 'VariableDeclarator',
+				id: { 
+					type: 'Identifier',
+					name: 'answer',
+					range: [ 4, 10 ],
+					loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 10 } }
+				},
+				init: { 
+					type: 'Literal',
+					value: 42,
+					raw: '42',
+					range: [ 21, 23 ],
+					loc: { start: { line: 1, column: 21 }, end: { line: 1, column: 23 } } 
+				},
+				typeAnnotation: 'number',
+				range: [ 4, 23 ],
+				loc: { start: { line: 1, column: 4 }, end: { line: 1, column: 23 } } 
+			}],
+			kind: 'var',
+			range: [ 0, 23 ],
+			loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 23 } } 
+		}
+	},
+	'TypeScript :: TypeCast': {
+		'var answer = <Teste>42': { 
+			type: 'VariableDeclaration',
+			declarations: [{ 
+				type: 'VariableDeclarator',
+				id: { 
+					type: 'Identifier',
+					name: 'answer',
+					range: [ 4, 10 ],
+					loc: { 
+						start: { line: 1, column: 4 },
+						end: { line: 1, column: 10 } 
+					} 
+				},
+				init: { 
+					type: 'Literal',
+					value: 42,
+					raw: '42',
+					cast: { 
+						type: 'CastExpression',
+						expr: 'Teste',
+						range: [ 13, 20 ],
+						loc: { 
+							start: { line: 1, column: 13 },
+							end: { line: 1, column: 20 } 
+						} 
+					},
+					range: [ 13, 22 ],
+					loc: { 
+						start: { line: 1, column: 13 },
+						end: { line: 1, column: 22 } 
+					} 
+				},
+				typeAnnotation: 'any',
+				range: [ 4, 22 ],
+				loc: { 
+					start: { line: 1, column: 4 },
+					end: { line: 1, column: 22 } 
+				} 
+			}],
+			kind: 'var',
+			range: [ 0, 22 ],
+			loc: { 
+				start: { line: 1, column: 0 },
+				end: { line: 1, column: 22 } 
+			} 
+		},
+		'(<{x: number; y: number; }>(name+r))' : { 
+			type: 'ExpressionStatement',
+			expression: { 
+				type: 'BinaryExpression',
+				operator: '+',
+				left: { 
+					type: 'Identifier',
+					name: 'name',
+					range: [ 28, 32 ],
+					loc: { 
+						start: { line: 1, column: 28 },
+						end: { line: 1, column: 32 } 
+					} 
+				},
+				right: { 
+					type: 'Identifier',
+					name: 'r',
+					range: [ 33, 34 ],
+					loc: { 
+						start: { line: 1, column: 33 },
+						end: { line: 1, column: 34 } 
+					} 
+				},
+				range: [ 28, 34 ],
+				loc: { 
+					start: { line: 1, column: 28 },
+					end: { line: 1, column: 34 } 
+				},
+				cast: { 
+					type: 'CastExpression',
+					expr: [{ 
+						type: 'TypedExpression',
+						identifier: 'x',
+						typeDef: 'number' 
+					}, { 
+						type: 'TypedExpression',
+						identifier: 'y',
+						typeDef: 'number' 
+					}],
+					range: [ 1, 27 ],
+					loc: { 
+						start: { line: 1, column: 1 },
+						end: { line: 1, column: 27 } 
+					} 
+				} 
+			},
+			range: [ 0, 36 ],
+			loc: { 
+				start: { line: 1, column: 0 },
+				end: { line: 1, column: 36 } 
+			} 
+		}
 	}
 };
 
